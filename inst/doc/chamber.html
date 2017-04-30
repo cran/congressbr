@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="pandoc" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<meta name="author" content="Robert McDonnell, Guilherme Duarte and Danilo Freire" />
+
+<meta name="date" content="2017-04-29" />
+
+<title>Exploring the Brazilian Chamber of Deputies</title>
+
+
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+
+
+<link href="data:text/css;charset=utf-8,body%20%7B%0Abackground%2Dcolor%3A%20%23fff%3B%0Amargin%3A%201em%20auto%3B%0Amax%2Dwidth%3A%20700px%3B%0Aoverflow%3A%20visible%3B%0Apadding%2Dleft%3A%202em%3B%0Apadding%2Dright%3A%202em%3B%0Afont%2Dfamily%3A%20%22Open%20Sans%22%2C%20%22Helvetica%20Neue%22%2C%20Helvetica%2C%20Arial%2C%20sans%2Dserif%3B%0Afont%2Dsize%3A%2014px%3B%0Aline%2Dheight%3A%201%2E35%3B%0A%7D%0A%23header%20%7B%0Atext%2Dalign%3A%20center%3B%0A%7D%0A%23TOC%20%7B%0Aclear%3A%20both%3B%0Amargin%3A%200%200%2010px%2010px%3B%0Apadding%3A%204px%3B%0Awidth%3A%20400px%3B%0Aborder%3A%201px%20solid%20%23CCCCCC%3B%0Aborder%2Dradius%3A%205px%3B%0Abackground%2Dcolor%3A%20%23f6f6f6%3B%0Afont%2Dsize%3A%2013px%3B%0Aline%2Dheight%3A%201%2E3%3B%0A%7D%0A%23TOC%20%2Etoctitle%20%7B%0Afont%2Dweight%3A%20bold%3B%0Afont%2Dsize%3A%2015px%3B%0Amargin%2Dleft%3A%205px%3B%0A%7D%0A%23TOC%20ul%20%7B%0Apadding%2Dleft%3A%2040px%3B%0Amargin%2Dleft%3A%20%2D1%2E5em%3B%0Amargin%2Dtop%3A%205px%3B%0Amargin%2Dbottom%3A%205px%3B%0A%7D%0A%23TOC%20ul%20ul%20%7B%0Amargin%2Dleft%3A%20%2D2em%3B%0A%7D%0A%23TOC%20li%20%7B%0Aline%2Dheight%3A%2016px%3B%0A%7D%0Atable%20%7B%0Amargin%3A%201em%20auto%3B%0Aborder%2Dwidth%3A%201px%3B%0Aborder%2Dcolor%3A%20%23DDDDDD%3B%0Aborder%2Dstyle%3A%20outset%3B%0Aborder%2Dcollapse%3A%20collapse%3B%0A%7D%0Atable%20th%20%7B%0Aborder%2Dwidth%3A%202px%3B%0Apadding%3A%205px%3B%0Aborder%2Dstyle%3A%20inset%3B%0A%7D%0Atable%20td%20%7B%0Aborder%2Dwidth%3A%201px%3B%0Aborder%2Dstyle%3A%20inset%3B%0Aline%2Dheight%3A%2018px%3B%0Apadding%3A%205px%205px%3B%0A%7D%0Atable%2C%20table%20th%2C%20table%20td%20%7B%0Aborder%2Dleft%2Dstyle%3A%20none%3B%0Aborder%2Dright%2Dstyle%3A%20none%3B%0A%7D%0Atable%20thead%2C%20table%20tr%2Eeven%20%7B%0Abackground%2Dcolor%3A%20%23f7f7f7%3B%0A%7D%0Ap%20%7B%0Amargin%3A%200%2E5em%200%3B%0A%7D%0Ablockquote%20%7B%0Abackground%2Dcolor%3A%20%23f6f6f6%3B%0Apadding%3A%200%2E25em%200%2E75em%3B%0A%7D%0Ahr%20%7B%0Aborder%2Dstyle%3A%20solid%3B%0Aborder%3A%20none%3B%0Aborder%2Dtop%3A%201px%20solid%20%23777%3B%0Amargin%3A%2028px%200%3B%0A%7D%0Adl%20%7B%0Amargin%2Dleft%3A%200%3B%0A%7D%0Adl%20dd%20%7B%0Amargin%2Dbottom%3A%2013px%3B%0Amargin%2Dleft%3A%2013px%3B%0A%7D%0Adl%20dt%20%7B%0Afont%2Dweight%3A%20bold%3B%0A%7D%0Aul%20%7B%0Amargin%2Dtop%3A%200%3B%0A%7D%0Aul%20li%20%7B%0Alist%2Dstyle%3A%20circle%20outside%3B%0A%7D%0Aul%20ul%20%7B%0Amargin%2Dbottom%3A%200%3B%0A%7D%0Apre%2C%20code%20%7B%0Abackground%2Dcolor%3A%20%23f7f7f7%3B%0Aborder%2Dradius%3A%203px%3B%0Acolor%3A%20%23333%3B%0Awhite%2Dspace%3A%20pre%2Dwrap%3B%20%0A%7D%0Apre%20%7B%0Aborder%2Dradius%3A%203px%3B%0Amargin%3A%205px%200px%2010px%200px%3B%0Apadding%3A%2010px%3B%0A%7D%0Apre%3Anot%28%5Bclass%5D%29%20%7B%0Abackground%2Dcolor%3A%20%23f7f7f7%3B%0A%7D%0Acode%20%7B%0Afont%2Dfamily%3A%20Consolas%2C%20Monaco%2C%20%27Courier%20New%27%2C%20monospace%3B%0Afont%2Dsize%3A%2085%25%3B%0A%7D%0Ap%20%3E%20code%2C%20li%20%3E%20code%20%7B%0Apadding%3A%202px%200px%3B%0A%7D%0Adiv%2Efigure%20%7B%0Atext%2Dalign%3A%20center%3B%0A%7D%0Aimg%20%7B%0Abackground%2Dcolor%3A%20%23FFFFFF%3B%0Apadding%3A%202px%3B%0Aborder%3A%201px%20solid%20%23DDDDDD%3B%0Aborder%2Dradius%3A%203px%3B%0Aborder%3A%201px%20solid%20%23CCCCCC%3B%0Amargin%3A%200%205px%3B%0A%7D%0Ah1%20%7B%0Amargin%2Dtop%3A%200%3B%0Afont%2Dsize%3A%2035px%3B%0Aline%2Dheight%3A%2040px%3B%0A%7D%0Ah2%20%7B%0Aborder%2Dbottom%3A%204px%20solid%20%23f7f7f7%3B%0Apadding%2Dtop%3A%2010px%3B%0Apadding%2Dbottom%3A%202px%3B%0Afont%2Dsize%3A%20145%25%3B%0A%7D%0Ah3%20%7B%0Aborder%2Dbottom%3A%202px%20solid%20%23f7f7f7%3B%0Apadding%2Dtop%3A%2010px%3B%0Afont%2Dsize%3A%20120%25%3B%0A%7D%0Ah4%20%7B%0Aborder%2Dbottom%3A%201px%20solid%20%23f7f7f7%3B%0Amargin%2Dleft%3A%208px%3B%0Afont%2Dsize%3A%20105%25%3B%0A%7D%0Ah5%2C%20h6%20%7B%0Aborder%2Dbottom%3A%201px%20solid%20%23ccc%3B%0Afont%2Dsize%3A%20105%25%3B%0A%7D%0Aa%20%7B%0Acolor%3A%20%230033dd%3B%0Atext%2Ddecoration%3A%20none%3B%0A%7D%0Aa%3Ahover%20%7B%0Acolor%3A%20%236666ff%3B%20%7D%0Aa%3Avisited%20%7B%0Acolor%3A%20%23800080%3B%20%7D%0Aa%3Avisited%3Ahover%20%7B%0Acolor%3A%20%23BB00BB%3B%20%7D%0Aa%5Bhref%5E%3D%22http%3A%22%5D%20%7B%0Atext%2Ddecoration%3A%20underline%3B%20%7D%0Aa%5Bhref%5E%3D%22https%3A%22%5D%20%7B%0Atext%2Ddecoration%3A%20underline%3B%20%7D%0A%0Acode%20%3E%20span%2Ekw%20%7B%20color%3A%20%23555%3B%20font%2Dweight%3A%20bold%3B%20%7D%20%0Acode%20%3E%20span%2Edt%20%7B%20color%3A%20%23902000%3B%20%7D%20%0Acode%20%3E%20span%2Edv%20%7B%20color%3A%20%2340a070%3B%20%7D%20%0Acode%20%3E%20span%2Ebn%20%7B%20color%3A%20%23d14%3B%20%7D%20%0Acode%20%3E%20span%2Efl%20%7B%20color%3A%20%23d14%3B%20%7D%20%0Acode%20%3E%20span%2Ech%20%7B%20color%3A%20%23d14%3B%20%7D%20%0Acode%20%3E%20span%2Est%20%7B%20color%3A%20%23d14%3B%20%7D%20%0Acode%20%3E%20span%2Eco%20%7B%20color%3A%20%23888888%3B%20font%2Dstyle%3A%20italic%3B%20%7D%20%0Acode%20%3E%20span%2Eot%20%7B%20color%3A%20%23007020%3B%20%7D%20%0Acode%20%3E%20span%2Eal%20%7B%20color%3A%20%23ff0000%3B%20font%2Dweight%3A%20bold%3B%20%7D%20%0Acode%20%3E%20span%2Efu%20%7B%20color%3A%20%23900%3B%20font%2Dweight%3A%20bold%3B%20%7D%20%20code%20%3E%20span%2Eer%20%7B%20color%3A%20%23a61717%3B%20background%2Dcolor%3A%20%23e3d2d2%3B%20%7D%20%0A" rel="stylesheet" type="text/css" />
+
+</head>
+
+<body>
+
+
+
+
+<h1 class="title toc-ignore">Exploring the Brazilian Chamber of Deputies</h1>
+<h4 class="author"><em>Robert McDonnell, Guilherme Duarte and Danilo Freire</em></h4>
+<h4 class="date"><em>2017-04-29</em></h4>
+
+
+
+<p><code>congressbr</code> makes it easy to explore the API of the Brazilian Chamber of Deputies, or the <em>Câmara dos Deputados</em>. The package contains many functions that help researchers to download, standardise and tidy data from the <em>Câmara</em> website. This vignette shows some examples.</p>
+<p>First, we need to install <code>congressbr</code>. You can install the package by running:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">if(!<span class="kw">require</span>(devtools)){<span class="kw">install.packages</span>(<span class="st">&quot;devtools&quot;</span>, <span class="dt">repos =</span> <span class="st">&quot;http://cran.us.r-project.org&quot;</span>)}
+if(!<span class="kw">require</span>(ggplot2)){<span class="kw">install.packages</span>(<span class="st">&quot;ggplot2&quot;</span>, <span class="dt">repos =</span> <span class="st">&quot;http://cran.us.r-project.org&quot;</span>)}</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(congressbr)
+<span class="kw">library</span>(ggplot2)</code></pre></div>
+<div id="votes" class="section level2">
+<h2>Votes</h2>
+<p><code>congressbr</code> has a dedicated function that returns a dataset with information about votes of a specific bill in the <em>Câmara dos Deputados</em>, the <code>cham_votes()</code> function. As we mentioned in the <a href="senate.html">Senate vignette</a>, the votes returned by the API are not necessarily <em>nominal</em> votes. This is because some votes are secret, thus the API only informs us if the deputy voted or not. Users have to provide the type (<code>type =</code>), number (<code>number =</code>) and year (<code>year =</code>) of the bill in question. Unfortunately, a particular bill can have more than one roll call, and the API does not provide an id to identify them. So we have provided one, the variable <code>rollcall_id</code> in the data frame. For instance, we can retrieve information about the proposition 1992/2007 with:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">cham_votes</span>(<span class="dt">type =</span> <span class="st">&quot;PL&quot;</span>, <span class="dt">number =</span> <span class="st">&quot;1992&quot;</span>, <span class="dt">year =</span> <span class="st">&quot;2007&quot;</span>)</code></pre></div>
+<pre><code>## # A tibble: 2,052 × 31
+##       rollcall_id
+##             &lt;chr&gt;
+## 1  PL-1992-2007-1
+## 2  PL-1992-2007-1
+## 3  PL-1992-2007-1
+## 4  PL-1992-2007-1
+## 5  PL-1992-2007-1
+## 6  PL-1992-2007-1
+## 7  PL-1992-2007-1
+## 8  PL-1992-2007-1
+## 9  PL-1992-2007-1
+## 10 PL-1992-2007-1
+## # ... with 2,042 more rows, and 30 more variables: decision_summary &lt;chr&gt;,
+## #   decision_date &lt;chr&gt;, decision_time &lt;chr&gt;, rollcall_subject &lt;chr&gt;,
+## #   session_id &lt;chr&gt;, DEM_orientation &lt;chr&gt;, GOV_orientation &lt;chr&gt;,
+## #   Minoria_orientation &lt;chr&gt;, PDT_orientation &lt;chr&gt;,
+## #   PMDB_orientation &lt;chr&gt;, PMN_orientation &lt;chr&gt;, PP_orientation &lt;chr&gt;,
+## #   PRB_orientation &lt;chr&gt;, PSC_orientation &lt;chr&gt;, PSDB_orientation &lt;chr&gt;,
+## #   PSD_orientation &lt;chr&gt;, PSOL_orientation &lt;chr&gt;, PT_orientation &lt;chr&gt;,
+## #   PrPtdobPrpPhsPtcPslPrtb_orientation &lt;chr&gt;,
+## #   PsbPtbPcdob_orientation &lt;chr&gt;, PvPps_orientation &lt;chr&gt;,
+## #   legislator_id &lt;chr&gt;, legislator_name &lt;chr&gt;, legislator_state &lt;chr&gt;,
+## #   legislator_party &lt;chr&gt;, legislator_vote &lt;chr&gt;,
+## #   ReprPMN_orientation &lt;chr&gt;, type_bill &lt;chr&gt;, number_bill &lt;chr&gt;,
+## #   year_bill &lt;chr&gt;</code></pre>
+<p>The function returns many values that may be interesting to users, such as the summary of the decision (<code>decision_summary</code>), the guidelines given by the government and the opposition to the members of their respective coalitions (<code>GOV_orientation</code> and <code>Minoria_orientation</code>) and what political parties suggested to their deputies. In the example above, we could see how the PSDB (<code>PSDB_orientation</code>) and the PSOL (<code>PSOL_orientation</code>) orientated their members.</p>
+<p>We can also get information about the legislator who proposed the bill, such as his or her name (<code>legislator_name</code>), the state that he or she represents (<code>legislator_state</code>), and his or her party affiliation (<code>legislator_party</code>). Those variables are available for each voting stage of the bill.</p>
+</div>
+<div id="bills" class="section level2">
+<h2>Bills</h2>
+<p>We have included two functions that retrieve details about particular bills. The first of them is <code>cham_bill_info()</code> function. This function requires three parameters, the bill’s type (<code>type =</code>), number (<code>number =</code>) and year (<code>year =</code>). To retrieve the above-mentioned proposal (<em>projeto de emenda constitucional</em>), the PEC 472/1997, you can type:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">cham_bill_info</span>(<span class="dt">type =</span> <span class="st">&quot;PEC&quot;</span>, <span class="dt">number =</span> <span class="st">&quot;472&quot;</span>, <span class="dt">year =</span> <span class="st">&quot;1997&quot;</span>)</code></pre></div>
+<pre><code>## # A tibble: 1 × 19
+##    bill_type bill_number bill_year bill_id    bill_name
+##        &lt;chr&gt;       &lt;chr&gt;     &lt;chr&gt;   &lt;chr&gt;        &lt;chr&gt;
+## 1 PEC                472      1997   14784 PEC 472/1997
+## # ... with 14 more variables: type_name &lt;chr&gt;, bill_subject &lt;chr&gt;,
+## #   ementa_txt &lt;chr&gt;, ementa_explanation &lt;chr&gt;, author_name &lt;chr&gt;,
+## #   author_id &lt;chr&gt;, author_state &lt;chr&gt;, author_party &lt;chr&gt;,
+## #   bill_index &lt;chr&gt;, presentation_date &lt;chr&gt;, complete_link &lt;chr&gt;,
+## #   situation_desc &lt;chr&gt;, last_action_desc &lt;chr&gt;, last_action_date &lt;chr&gt;</code></pre>
+<p>In another example, we can download data about the law proposition (<em>projeto de lei</em>) 3892/2008 with:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">cham_bill_info</span>(<span class="dt">type =</span> <span class="st">&quot;PL&quot;</span>, <span class="dt">number =</span> <span class="st">&quot;3962&quot;</span>, <span class="dt">year =</span> <span class="st">&quot;2008&quot;</span>)</code></pre></div>
+<pre><code>## # A tibble: 1 × 19
+##    bill_type bill_number bill_year bill_id    bill_name      type_name
+##        &lt;chr&gt;       &lt;chr&gt;     &lt;chr&gt;   &lt;chr&gt;        &lt;chr&gt;          &lt;chr&gt;
+## 1 PL                3962      2008  408406 PL 3962/2008 Projeto de Lei
+## # ... with 13 more variables: bill_subject &lt;chr&gt;, ementa_txt &lt;chr&gt;,
+## #   ementa_explanation &lt;chr&gt;, author_name &lt;chr&gt;, author_id &lt;chr&gt;,
+## #   author_state &lt;chr&gt;, author_party &lt;chr&gt;, bill_index &lt;chr&gt;,
+## #   presentation_date &lt;chr&gt;, complete_link &lt;chr&gt;, situation_desc &lt;chr&gt;,
+## #   last_action_desc &lt;chr&gt;, last_action_date &lt;chr&gt;</code></pre>
+<p>The function return 19 variables, including the decision situation of the proposition (<code>situation_desc</code>), the full text in pdf (<code>complete_link</code>), and personal information about the author of the proposition (<code>author_name</code>, <code>author_state</code>, and <code>author_party</code>).</p>
+<p>Another way of downloading the same information would be to use <code>cham_bill_info_id()</code>. The function requires the id of the bill. As an example, we can download some information about a <a href="http://www.camara.gov.br/proposicoesWeb/fichadetramitacao?idProposicao=14784">proposal for constitutional amendment by Espiridião Amin</a>, which has the id 14784, using the code below:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">cham_bill_info_id</span>(<span class="dv">14784</span>)</code></pre></div>
+<pre><code>## [1] &quot;http://www.camara.leg.br/SitCamaraWS/Proposicoes.asmx/ObterProposicaoPorID?IdProp=14784&quot;</code></pre>
+<pre><code>## # A tibble: 1 × 19
+##    bill_type bill_number bill_year bill_id    bill_name
+##        &lt;chr&gt;       &lt;chr&gt;     &lt;chr&gt;   &lt;chr&gt;        &lt;chr&gt;
+## 1 PEC                472      1997   14784 PEC 472/1997
+## # ... with 14 more variables: type_name &lt;chr&gt;, bill_subject &lt;chr&gt;,
+## #   ementa_txt &lt;chr&gt;, ementa_explanation &lt;chr&gt;, author_name &lt;chr&gt;,
+## #   author_id &lt;chr&gt;, author_state &lt;chr&gt;, author_party &lt;chr&gt;,
+## #   bill_index &lt;chr&gt;, presentation_date &lt;chr&gt;, complete_link &lt;chr&gt;,
+## #   situation_desc &lt;chr&gt;, last_action_desc &lt;chr&gt;, last_action_date &lt;chr&gt;</code></pre>
+<p>Users can download all every bill voted on in plenary in a given calendar year with <code>cham_plenary_bills()</code>. The function has a single parameter, <code>year =</code>, and returns the id of the bill (<code>bill_id</code>), its name (<code>bill_name</code>), and the day on which it was voted (<code>vote_date</code>)</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">cham_plenary_bills</span>(<span class="dt">year =</span> <span class="dv">2008</span>)</code></pre></div>
+<pre><code>## # A tibble: 158 × 3
+##    bill_id    bill_name  vote_date
+##      &lt;chr&gt;        &lt;chr&gt;      &lt;chr&gt;
+## 1    26523 PLP 183/2001 09/12/2008
+## 2   129219 PEC 138/2003 13/08/2008
+## 3   129219 PEC 138/2003 12/11/2008
+## 4   129219 PEC 138/2003 12/11/2008
+## 5   129219 PEC 138/2003 12/11/2008
+## 6   129219 PEC 138/2003 12/11/2008
+## 7   253010 PLP 177/2004 13/08/2008
+## 8   255794 PLP 182/2004 13/08/2008
+## 9   257126 PLP 184/2004 10/12/2008
+## 10  269852 PEC 333/2004 27/05/2008
+## # ... with 148 more rows</code></pre>
+<p>Finally, <code>congressbr</code> also features <code>cham_typeauthors_bills()</code>, a convenience function that downloads the types of authors for bills.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">cham_typeauthors_bills</span>()</code></pre></div>
+<pre><code>## # A tibble: 43 × 2
+##    type_id                           type_desc
+##      &lt;chr&gt;                               &lt;chr&gt;
+## 1        1                   Comissao Diretora
+## 2       10                   Grupo de Trabalho
+## 3     1000 Importacao das proposicoes inativas
+## 4    10000                          Deputado  
+## 5       11                            Conselho
+## 6      110    Comissao da Camara dos Deputados
+## 7       12            Procuradoria Parlamentar
+## 8    12000       Orgao da Camara dos Deputados
+## 9       13                        Corregedoria
+## 10   13000           Comissao Temporaria da CD
+## # ... with 33 more rows</code></pre>
+</div>
+<div id="examples" class="section level2">
+<h2>Examples</h2>
+<p>In this brief example, we will examine how the parties orientated their deputies to vote in the law proposition 1992/2007, the same we have downloaded with the <code>cham_votes()</code> function. This example makes use of the ggplot2 package.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">party_orientation &lt;-<span class="st"> </span><span class="kw">cham_votes</span>(<span class="dt">type =</span> <span class="st">&quot;PL&quot;</span>, <span class="dt">number =</span> <span class="st">&quot;1992&quot;</span>, <span class="dt">year =</span> <span class="st">&quot;2007&quot;</span>)
+party_orientation &lt;-<span class="st"> </span><span class="kw">as.data.frame</span>(<span class="kw">t</span>(party_orientation[<span class="dv">1</span>, <span class="kw">c</span>(<span class="dv">7</span>, <span class="dv">10</span>:<span class="dv">22</span>)])) <span class="co"># select only one row and the columns of interest; transpose data</span>
+<span class="kw">names</span>(party_orientation)[<span class="dv">1</span>] &lt;-<span class="st"> &quot;orientation&quot;</span>
+
+ggplot2::<span class="kw">ggplot</span>(party_orientation, <span class="kw">aes</span>(<span class="dt">x =</span> orientation)) +
+<span class="st">  </span><span class="kw">geom_bar</span>(<span class="kw">aes</span>(<span class="dt">fill =</span> orientation), <span class="dt">colour =</span> <span class="st">&quot;white&quot;</span>) +
+<span class="st">  </span><span class="kw">theme_classic</span>() +<span class="st"> </span>
+<span class="st">  </span><span class="kw">scale_fill_hue</span>(<span class="dt">l =</span> <span class="dv">40</span>) +<span class="st"> </span>
+<span class="st">  </span><span class="kw">ggtitle</span>(<span class="st">&quot;Party Orientation - PL 1992/2007&quot;</span>) +
+<span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;Orientation&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;Count&quot;</span>) +<span class="st"> </span>
+<span class="st">  </span><span class="kw">theme</span>(<span class="dt">legend.position =</span> <span class="st">&quot;none&quot;</span>)</code></pre></div>
+<p><img src="data:image/png;base64,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" /><!-- --></p>
+<p>Similarly, we could also have used the <code>dplyr</code> package to see how many parties suggested their members to vote “yay” (<em>sim</em>), “nay” (<em>não</em>), or allowed deputies to decide their votes (<em>liberado</em>).</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">if(!<span class="kw">require</span>(dplyr)){<span class="kw">install.packages</span>(<span class="st">&quot;dplyr&quot;</span>, <span class="dt">repos =</span> <span class="st">&quot;http://cran.us.r-project.org&quot;</span>)}
+<span class="kw">library</span>(dplyr)
+
+party_orientation %&gt;%
+<span class="st">  </span><span class="kw">group_by</span>(orientation) %&gt;%
+<span class="st">  </span><span class="kw">tally</span>()</code></pre></div>
+<pre><code>## # A tibble: 3 × 2
+##   orientation     n
+##        &lt;fctr&gt; &lt;int&gt;
+## 1    Liberado     3
+## 2         Nao     4
+## 3         Sim     7</code></pre>
+</div>
+
+
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>
