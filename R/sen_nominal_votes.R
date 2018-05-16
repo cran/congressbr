@@ -11,11 +11,11 @@
 #'  \item{\code{legislature: }}{legislature number.}
 #'  \item{\code{senator_id: }}{unique id of the senator.}
 #'  \item{\code{senator_name: }}{the senator's name.}
-#'  \item{\code{senator_vote: }}{vote cast. 1 = "yes"; 0 = "no", NA = other.}
+#'  \item{\code{senator_vote: }}\code{numeric}{vote cast. 1 = "yes"; 0 = "no", NA = other.}
 #'  \item{\code{senator_party: }}{political party the senator was in when the vote took place.}
 #'  \item{\code{senator_state: }}{state the senator represented when the vote took place.}
 #' }
 #'
 #' @format A data frame with 60691 rows and 8 variables
-"senate_nominal_votes"
-#> [1] "senate_nominal_votes"
+"sen_nominal_votes"
+#> [1] "sen_nominal_votes"

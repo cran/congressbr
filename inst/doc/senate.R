@@ -1,8 +1,14 @@
-## ---- eval=F-------------------------------------------------------------
+## ---- eval=F, echo=FALSE-------------------------------------------------
 #  if(!require(devtools)){install.packages("devtools", repos = "http://cran.us.r-project.org")}
 #  if(!require(ggplot2)){install.packages("ggplot2", repos = "http://cran.us.r-project.org")}
 
-## ---- message = F, warning = F-------------------------------------------
+## ----eval = FALSE--------------------------------------------------------
+#  install.packages("congressbr")
+
+## ----eval=FALSE----------------------------------------------------------
+#  library(congressbr)
+
+## ---- message = F, warning = F, echo=FALSE-------------------------------
 library(congressbr)
 library(ggplot2)
 
@@ -17,7 +23,7 @@ sen_senator_list()
 sen_senator_details(id = "3398") # Cristovam Buarque
 sen_senator_bills(id = "3398")
 
-## ------------------------------------------------------------------------
+## ----message = FALSE, warning=FALSE--------------------------------------
 sen_coalition_info(code = 200)
 
 ## ------------------------------------------------------------------------
@@ -40,16 +46,16 @@ sen_agenda(initial_date = "20161105", end_date = "20161125")
 all_sens <- sen_senator_list()
 
 ## ---- message = F, warning = F, eval = F---------------------------------
-#  
+#  library(ggplot2)
 #  all_sens <- sen_senator_list()
 #  
-#  ggplot2::ggplot(all_sens, aes(x = gender)) +
+#  ggplot(all_sens, aes(x = gender)) +
 #    geom_bar(aes(fill = gender), colour = "white") +
 #    theme_classic() +
 #    scale_fill_manual(values = c("#45C74A", "#FFFF00"))
 
 ## ---- echo=-1:-2, message = F, warning = F, eval = F---------------------
-#  ggplot2::ggplot(all_sens, aes(x = status)) +
+#  ggplot(all_sens, aes(x = status)) +
 #    geom_bar(aes(fill = status), colour = "black") +
 #    theme_classic() +
 #    scale_fill_manual(values = c("#45C74A", "navy")) +
