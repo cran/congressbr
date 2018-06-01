@@ -2,7 +2,7 @@ Package: congressbr
 Type: Package
 Title: Downloads, Unpacks and Tidies Legislative Data from the
         Brazilian Federal Senate and Chamber of Deputies
-Version: 0.1.2
+Version: 0.1.3
 Authors@R: c(
     person(given = "Robert", family = "McDonnell", email = "mcdonnell.robert5@gmail.com", role = c("aut", "cre")),
     person(given = "Guilherme", family = "Jardim Duarte", email = "gjardimduarte@gmail.com", role = "aut"),
@@ -25,11 +25,11 @@ RoxygenNote: 6.0.1
 Suggests: covr, knitr, rmarkdown, ggplot2, devtools
 VignetteBuilder: knitr
 NeedsCompilation: no
-Packaged: 2018-05-15 23:36:28 UTC; robert
+Packaged: 2018-06-01 15:09:25 UTC; robert
 Author: Robert McDonnell [aut, cre],
   Guilherme Jardim Duarte [aut],
   Danilo Freire [aut],
   Julio Trecenti [aut]
 Maintainer: Robert McDonnell <mcdonnell.robert5@gmail.com>
 Repository: CRAN
-Date/Publication: 2018-05-16 13:09:00 UTC
+Date/Publication: 2018-06-01 15:45:47 UTC

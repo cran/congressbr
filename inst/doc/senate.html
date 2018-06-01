@@ -12,7 +12,7 @@
 
 <meta name="author" content="Robert McDonnell, Guilherme Duarte and Danilo Freire" />
 
-<meta name="date" content="2018-05-15" />
+<meta name="date" content="2018-06-01" />
 
 <title>Exploring the Brazilian Federal Senate</title>
 
@@ -280,7 +280,7 @@ code > span.fu { color: #900; font-weight: bold; }  code > span.er { color: #a61
 
 <h1 class="title toc-ignore">Exploring the Brazilian Federal Senate</h1>
 <h4 class="author"><em>Robert McDonnell, Guilherme Duarte and Danilo Freire</em></h4>
-<h4 class="date"><em>2018-05-15</em></h4>
+<h4 class="date"><em>2018-06-01</em></h4>
 
 
 
@@ -296,16 +296,16 @@ code > span.fu { color: #900; font-weight: bold; }  code > span.er { color: #a61
 <pre><code>## # A tibble: 486 x 16
 ##    vote_date           vote_time vote_round bill_id bill_number bill_type
 ##    &lt;dttm&gt;              &lt;chr&gt;          &lt;dbl&gt; &lt;chr&gt;   &lt;chr&gt;       &lt;chr&gt;    
-##  1 2016-09-08 00:00:00 14:00             1. 126544  00076       MSF      
-##  2 2016-09-08 00:00:00 14:00             1. 126544  00076       MSF      
-##  3 2016-09-08 00:00:00 14:00             1. 126544  00076       MSF      
-##  4 2016-09-08 00:00:00 14:00             1. 126544  00076       MSF      
-##  5 2016-09-08 00:00:00 14:00             1. 126544  00076       MSF      
-##  6 2016-09-08 00:00:00 14:00             1. 126544  00076       MSF      
-##  7 2016-09-08 00:00:00 14:00             1. 126544  00076       MSF      
-##  8 2016-09-08 00:00:00 14:00             1. 126544  00076       MSF      
-##  9 2016-09-08 00:00:00 14:00             1. 126544  00076       MSF      
-## 10 2016-09-08 00:00:00 14:00             1. 126544  00076       MSF      
+##  1 2016-09-08 00:00:00 14:00              1 126544  00076       MSF      
+##  2 2016-09-08 00:00:00 14:00              1 126544  00076       MSF      
+##  3 2016-09-08 00:00:00 14:00              1 126544  00076       MSF      
+##  4 2016-09-08 00:00:00 14:00              1 126544  00076       MSF      
+##  5 2016-09-08 00:00:00 14:00              1 126544  00076       MSF      
+##  6 2016-09-08 00:00:00 14:00              1 126544  00076       MSF      
+##  7 2016-09-08 00:00:00 14:00              1 126544  00076       MSF      
+##  8 2016-09-08 00:00:00 14:00              1 126544  00076       MSF      
+##  9 2016-09-08 00:00:00 14:00              1 126544  00076       MSF      
+## 10 2016-09-08 00:00:00 14:00              1 126544  00076       MSF      
 ## # ... with 476 more rows, and 10 more variables: bill_year &lt;chr&gt;,
 ## #   bill_description &lt;chr&gt;, vote_result &lt;chr&gt;, vote_secret &lt;chr&gt;,
 ## #   senator_id &lt;chr&gt;, senator_name &lt;chr&gt;, senator_vote &lt;chr&gt;,
@@ -364,7 +364,7 @@ code > span.fu { color: #900; font-weight: bold; }  code > span.er { color: #a61
 ## #   senator_mandates_second_legis &lt;chr&gt;, senator_url &lt;chr&gt;,
 ## #   senator_email &lt;chr&gt;, senator_office_address &lt;chr&gt;</code></pre>
 <div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb11-1" data-line-number="1"><span class="kw">sen_senator_bills</span>(<span class="dt">id =</span> <span class="st">&quot;3398&quot;</span>)</a></code></pre></div>
-<pre><code>## # A tibble: 107 x 9
+<pre><code>## # A tibble: 106 x 9
 ##    senator_id senator_name senator_party_n… senator_party_a… senator_state
 ##    &lt;chr&gt;      &lt;chr&gt;        &lt;chr&gt;            &lt;chr&gt;            &lt;chr&gt;        
 ##  1 3398       Cristovam B… Partido Popular… PPS              DF           
@@ -377,7 +377,7 @@ code > span.fu { color: #900; font-weight: bold; }  code > span.er { color: #a61
 ##  8 3398       Cristovam B… Partido Popular… PPS              DF           
 ##  9 3398       Cristovam B… Partido Popular… PPS              DF           
 ## 10 3398       Cristovam B… Partido Popular… PPS              DF           
-## # ... with 97 more rows, and 4 more variables: senator_bills_number &lt;chr&gt;,
+## # ... with 96 more rows, and 4 more variables: senator_bills_number &lt;chr&gt;,
 ## #   senator_bills_type &lt;chr&gt;, senator_bills_year &lt;chr&gt;,
 ## #   senator_bills_details &lt;chr&gt;</code></pre>
 </div>
@@ -399,10 +399,20 @@ code > span.fu { color: #900; font-weight: bold; }  code > span.er { color: #a61
 <p>Using the commission abbreviations, we can see which senators serve on the commission. One well-known commission is the Commission for the Constitution, Justice and Citizenship (<em>Constituicao, Justica e Cidadania</em>). Its abbreviation is “CCJ”:</p>
 <div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb15-1" data-line-number="1"><span class="kw">data</span>(<span class="st">&quot;commissions&quot;</span>)</a>
 <a class="sourceLine" id="cb15-2" data-line-number="2"><span class="kw">sen_commissions_senators</span>(<span class="dt">code =</span> <span class="st">&quot;CCJ&quot;</span>)</a></code></pre></div>
-<pre><code>## # A tibble: 0 x 6
-## # ... with 6 variables: commission &lt;chr&gt;, commission_abbr &lt;chr&gt;,
-## #   senator_id &lt;chr&gt;, senator_name &lt;chr&gt;, senator_party &lt;chr&gt;,
-## #   senator_state &lt;chr&gt;</code></pre>
+<pre><code>## # A tibble: 48 x 6
+##    commission       commission_abbr senator_id senator_name  senator_party
+##    &lt;chr&gt;            &lt;chr&gt;           &lt;chr&gt;      &lt;chr&gt;         &lt;chr&gt;        
+##  1 Comissao de Con… CCJ             4988       Ana Amelia    PP           
+##  2 Comissao de Con… CCJ             5006       Gleisi Hoffm… PT           
+##  3 Comissao de Con… CCJ             87         Garibaldi Al… MDB          
+##  4 Comissao de Con… CCJ             4763       Vicentinho A… PR           
+##  5 Comissao de Con… CCJ             615        Jose Pimentel PT           
+##  6 Comissao de Con… CCJ             631        Magno Malta   PR           
+##  7 Comissao de Con… CCJ             3          Antonio Carl… PSB          
+##  8 Comissao de Con… CCJ             4697       Angela Porte… PDT          
+##  9 Comissao de Con… CCJ             5008       Humberto Cos… PT           
+## 10 Comissao de Con… CCJ             3695       Lindbergh Fa… PT           
+## # ... with 38 more rows, and 1 more variable: senator_state &lt;chr&gt;</code></pre>
 </div>
 <div id="general-information" class="section level2">
 <h2>General Information</h2>
@@ -415,14 +425,14 @@ code > span.fu { color: #900; font-weight: bold; }  code > span.er { color: #a61
 ##    &lt;chr&gt;    &lt;chr&gt;      &lt;chr&gt;                            &lt;chr&gt;       
 ##  1 578      AVANTE     AVANTE                           2017-09-12  
 ##  2 554      DEM        Democratas                       2007-03-28  
-##  3 566      NOVO       Partido Novo                     2015-09-15  
-##  4 142      PAN        Partido dos Aposentados da Nacao 1998-02-19  
-##  5 94       PCB        Partido Comunista Brasileiro     1922-03-25  
-##  6 144      PCN        Partido Comunitario  Nacional    1985-07-01  
-##  7 145      PCO        Partido da Causa Operaria        1997-09-30  
-##  8 86       PCdoB      Partido Comunista do Brasil      1962-02-01  
-##  9 20       PDT        Partido Democratico Trabalhista  1980-09-16  
-## 10 559      PEN        Partido Ecologico Nacional       2012-06-19  
+##  3 33       MDB        Movimento Democratico Brasileiro 1980-01-01  
+##  4 566      NOVO       Partido Novo                     2015-09-15  
+##  5 142      PAN        Partido dos Aposentados da Nacao 1998-02-19  
+##  6 94       PCB        Partido Comunista Brasileiro     1922-03-25  
+##  7 144      PCN        Partido Comunitario  Nacional    1985-07-01  
+##  8 145      PCO        Partido da Causa Operaria        1997-09-30  
+##  9 86       PCdoB      Partido Comunista do Brasil      1962-02-01  
+## 10 20       PDT        Partido Democratico Trabalhista  1980-09-16  
 ## # ... with 37 more rows</code></pre>
 </div>
 <div id="states" class="section level3">
@@ -495,7 +505,7 @@ code > span.fu { color: #900; font-weight: bold; }  code > span.er { color: #a61
 <a class="sourceLine" id="cb27-3" data-line-number="3"></a>
 <a class="sourceLine" id="cb27-4" data-line-number="4">all_sens <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(status <span class="op">!=</span><span class="st"> &quot;Titular&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">group_by</span>(state) <span class="op">%&gt;%</span><span class="st"> </span></a>
 <a class="sourceLine" id="cb27-5" data-line-number="5"><span class="st">  </span><span class="kw">summarise</span>(<span class="dt">totals =</span> <span class="kw">n</span>()) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">arrange</span>(<span class="kw">desc</span>(totals))</a></code></pre></div>
-<pre><code>## # A tibble: 12 x 2
+<pre><code>## # A tibble: 13 x 2
 ##    state totals
 ##    &lt;chr&gt;  &lt;int&gt;
 ##  1 MT         2
@@ -507,9 +517,10 @@ code > span.fu { color: #900; font-weight: bold; }  code > span.er { color: #a61
 ##  7 PB         1
 ##  8 PI         1
 ##  9 RJ         1
-## 10 SC         1
-## 11 SP         1
-## 12 TO         1</code></pre>
+## 10 RR         1
+## 11 SC         1
+## 12 SP         1
+## 13 TO         1</code></pre>
 <p>Mato Grosso, it seems, with two-thirds of their senators being stand-in <em>suplentes</em>.</p>
 </div>
 </div>
