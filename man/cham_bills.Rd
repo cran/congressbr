@@ -7,19 +7,18 @@
 cham_bills(type = "", number = "", year = "", initial_date = "",
   end_date = "", part_name_author = "", id_type_author = "",
   abbreviation_party_author = "", abbreviation_st_author = "",
-  gender_author = "", cod_state = "", cod_branch_state = "", still = "",
-  ascii = T)
+  gender_author = "", cod_state = "", cod_branch_state = "",
+  still = "", ascii = T)
 }
 \arguments{
-\item{type}{\code{character}. The type of the bill. For example, "PL"}
+\item{type}{\code{character}. The type of the bill. For example, "PL".}
 
 \item{number}{\code{integer}. The number of the bill}
 
 \item{year}{\code{integer}. The year of the bill.}
 
 \item{initial_date}{(\code{character}) start date of the period requested.
-This parameter must be in the format YYYYMMDD (Year-Month-Day). A value for
-this parameter is necessary, all others are optional.}
+This parameter must be in the format YYYY-MM-DD (Year-Month-Day).}
 
 \item{end_date}{(\code{character}) final date for period requested. Format
 YYYYMMDD.}
@@ -50,8 +49,8 @@ A tibble, of classes \code{tbl_df}, \code{tbl} and \code{data.frame}.
 Downloads and tidies data for lists of bills in Brazilian Chamber of Deputies
 }
 \examples{
-\dontrun{
-cham_bills(type = "PL", year = 1998)
+\donttest{
+cham_bills(type = "PL", year = 2011, number = 2718, initial_date="2011-16-11")
 }
 }
 \author{

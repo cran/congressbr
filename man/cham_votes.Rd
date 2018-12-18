@@ -8,7 +8,7 @@ cham_votes(type, number, year, ascii = TRUE)
 }
 \arguments{
 \item{type}{\code{character}. The type of the bill. For example, "PL" for law proposal ("projeto de lei"),
-"PEC" for constitutional ammendments ("projeto de emenda constitucional"), "PDC" for legislative decree ("decreto legislativo"),
+"PEC" for constitutional amendments ("projeto de emenda constitucional"), "PDC" for legislative decree ("decreto legislativo"),
 and "PLP" for supplementary laws ("projeto de lei complementar).}
 
 \item{number}{\code{integer}. The number of the bill.}
@@ -30,7 +30,7 @@ return a large object in terms of memory. It will also be rather unwieldy, with
 many columns.
 }
 \examples{
-\dontrun{cham_votes(type = "PL", number = "1992", year = "2007")}
+\donttest{cham_votes(type = "PL", number = "1992", year = "2007")}
 }
 \author{
 Robert Myles McDonnell, Guilherme Jardim Duarte & Danilo Freire.

@@ -28,7 +28,7 @@ format.}
 A tibble, of classes \code{tbl_df}, \code{tbl} and \code{data.frame}.
 }
 \description{
-Downloads and tidies persnonal information on senators from the
+Downloads and tidies personal information on senators from the
 Federal Senate.
 }
 \note{
@@ -36,7 +36,7 @@ Setting \code{affiliations}, \code{mandates} and particularly
 \code{absences} to \code{TRUE} will result in a rather bloated data frame.
 }
 \examples{
-\dontrun{
+\donttest{
 benedito <- sen_senator(id = 3823)
 aecio <- sen_senator(id = 391, absences = TRUE)
 juc <- sen_senator(73)

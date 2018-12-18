@@ -5,7 +5,8 @@
 \title{Returns voting information from the Senate floor for the date
 requested}
 \usage{
-sen_votes(date = NULL, end_date = NULL, binary = TRUE, ascii = TRUE)
+sen_votes(date = NULL, end_date = NULL, binary = TRUE,
+  ascii = TRUE)
 }
 \arguments{
 \item{date}{\code{character} or \code{integer}. Format YYYYMMDD.}
@@ -35,7 +36,7 @@ set of votes for each legislature, see \code{data("senate_nominal_votes")}.
 }
 \examples{
 \dontrun{
-nominal_vote <- sen_votes(date = "20130516")
+en_votes(date = "20130516")
 
 # Some votes are secret:
 ssshhh <- sen_votes("20160301", binary = FALSE)

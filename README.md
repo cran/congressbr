@@ -15,7 +15,8 @@ like to include lower-level houses in future, if possible.
 
 ### Installation
 
-congressbr is on CRAN, and so can be installed with the following:
+~~congressbr is on CRAN, and so can be installed with the following:~~
+(currently under redevelopment ahead of a resubmit)
 
 ``` r
 install.packages("congressbr")
@@ -24,7 +25,7 @@ install.packages("congressbr")
 Development versions can be installed with the devtools package:
 
 ``` r
-devtools::install_github("RobertMyles/congressbr")
+devtools::install_github("BrazilianPublicData/congressbr")
 ```
 
 ### Function naming
@@ -58,7 +59,7 @@ Deputies.
   - `data("commissions")` returns a dataframe of commissions, with two
     columns, the full name of the commission, and the abbreviations used
     in some of the other functions in `congressbr` and in much of the
-    literature on the insitution.
+    literature on the institution.
 
   - `data("sen_nominal_votes")` is a dataframe of all the nominal votes
     in the Senate between 1991 and early 2017 (the Senate API only
@@ -73,10 +74,10 @@ If you would like to get involved, feel free to fork the repo. We’ve
 been using the [Udacity Git Commit Message Style
 Guide](https://udacity.github.io/git-styleguide/) (well, not *always*).
 There are a list of open
-[issues](https://github.com/RobertMyles/congressbr/issues), which is a
-good place to start. The API of the Federal Senate is also under
-development, and so elements of this package may change. If you find any
-problems with the package, please open an issue and leave us a
+[issues](https://github.com/BrazilianPublicData/congressbr/issues),
+which is a good place to start. The API of the Federal Senate is also
+under development, and so elements of this package may change. If you
+find any problems with the package, please open an issue and leave us a
 reproducible example and we’ll get it fixed asap.
 
 ### Citation

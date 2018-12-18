@@ -5,8 +5,8 @@
 \title{Downloads and tidies information on legislation that is under
 consideration in the Federal Senate}
 \usage{
-sen_bills_passing(year = NULL, number = NULL, type = NULL, date = NULL,
-  time = NULL)
+sen_bills_passing(year = NULL, number = NULL, type = NULL,
+  date = NULL, time = NULL)
 }
 \arguments{
 \item{year}{Format YYYY. Returns legislation from this year.}
@@ -29,7 +29,7 @@ Downloads and tidies information on legislation that is under
 consideration in the Federal Senate.
 }
 \examples{
-\dontrun{
+\donttest{
 sen_bills_passing()
 # All MPVs (provisional presidential decrees) in 2001:
 mpvs <- sen_bills_passing(year = "2001", type = "MPV")

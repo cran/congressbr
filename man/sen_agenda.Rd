@@ -5,7 +5,8 @@
 \title{Downloads and tidies data on the agenda in the Federal Senate}
 \usage{
 sen_agenda(initial_date = NULL, end_date = NULL, house = NULL,
-  supervisory = NULL, legislator = NULL, details = FALSE, ascii = TRUE)
+  supervisory = NULL, legislator = NULL, details = FALSE,
+  ascii = TRUE)
 }
 \arguments{
 \item{initial_date}{(\code{character}) start date of the period requested.
@@ -47,7 +48,7 @@ return a large object in terms of memory. It will also be rather unwieldy, with
 many columns.
 }
 \examples{
-\dontrun{
+\donttest{
 sen_agenda(initial_date = "20161105", end_date = "20161125")
 sen_agenda(initial_date = "20161105", end_date = "20161125",
 legislator = 4988)

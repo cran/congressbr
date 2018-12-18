@@ -20,8 +20,8 @@
 #' # get info for the 3rd of March 2016:
 #' x <- sen_plenary_result(date = "20160303")
 #' # Earlier periods may not have information:
-#' \dontrun{
-#' y <- sen_plenary_result(date = "19910105")
+#' \donttest{
+#' sen_plenary_result(date = "20110405")
 #' }
 #' @export
 sen_plenary_result <- function(date = NULL, ascii = TRUE){

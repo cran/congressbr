@@ -4,8 +4,8 @@
 \alias{sen_senator_legis}
 \title{Downloads and tidies information on the senators in the Federal Senate}
 \usage{
-sen_senator_legis(start = NULL, end = NULL, state = NULL, status = NULL,
-  ascii = TRUE)
+sen_senator_legis(start = NULL, end = NULL, state = NULL,
+  status = NULL, ascii = TRUE)
 }
 \arguments{
 \item{start}{two-digit integer representing the first legislature of the
@@ -30,7 +30,7 @@ A tibble, of classes \code{tbl_df}, \code{tbl} and \code{data.frame}.
 Downloads and tidies information on the senators in the Federal Senate.
 }
 \examples{
-\dontrun{
+\donttest{
 all <- sen_senator_legis(start = 50)
 }
 }

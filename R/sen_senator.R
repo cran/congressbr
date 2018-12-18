@@ -10,7 +10,7 @@
 #' @importFrom purrr is_empty
 #' @title Downloads and tidies persnonal information on senators from the
 #' Federal Senate
-#' @description Downloads and tidies persnonal information on senators from the
+#' @description Downloads and tidies personal information on senators from the
 #' Federal Senate.
 #' @param id \code{integer}. Unique id for a senator. A dataframe of these
 #' is available from \code{sen_senator_list()}.
@@ -27,7 +27,7 @@
 #' @note Setting \code{affiliations}, \code{mandates} and particularly
 #' \code{absences} to \code{TRUE} will result in a rather bloated data frame.
 #' @examples
-#' \dontrun{
+#' \donttest{
 #' benedito <- sen_senator(id = 3823)
 #' aecio <- sen_senator(id = 391, absences = TRUE)
 #' juc <- sen_senator(73)

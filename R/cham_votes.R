@@ -16,7 +16,7 @@
 #' @description Downloads votes of a specific bill by providing type, number and year. A bill can have more than one roll call,
 #' and the API does not provide an id to identify them So we provide one (rollcall_id).
 #' @param type \code{character}. The type of the bill. For example, "PL" for law proposal ("projeto de lei"),
-#'  "PEC" for constitutional ammendments ("projeto de emenda constitucional"), "PDC" for legislative decree ("decreto legislativo"),
+#'  "PEC" for constitutional amendments ("projeto de emenda constitucional"), "PDC" for legislative decree ("decreto legislativo"),
 #'  and "PLP" for supplementary laws ("projeto de lei complementar).
 #' @param number \code{integer}. The number of the bill.
 #' @param year \code{integer}. The year of the bill.
@@ -27,7 +27,7 @@
 #' many columns.
 #' @author Robert Myles McDonnell, Guilherme Jardim Duarte & Danilo Freire.
 #' @examples
-#' \dontrun{cham_votes(type = "PL", number = "1992", year = "2007")}
+#' \donttest{cham_votes(type = "PL", number = "1992", year = "2007")}
 #' @export
 cham_votes <- function(type, number, year, ascii = TRUE) {
   if ( is.null(type) | is.null(number) | is.null(year) ) {
@@ -35,13 +35,13 @@ cham_votes <- function(type, number, year, ascii = TRUE) {
   }
   link <- "http://www.camara.leg.br/SitCamaraWS/Proposicoes.asmx/ObterVotacaoProposicao?tipo=" %p%
     type %p% "&numero=" %p% number %p% "&ano=" %p% year
-  print(link)
+
   data <- tryCatch({read_xml(link)},
                    error=function(x) {
-                     y <- GET(link)
+                     y <- httr::GET(link)
                      # Handling a specific error related to the API
                      msg_erro <- "Esta proposicao eh acessoria e nao foi possivel baixar seu conteudo"
-                    if ( str_detect(rawToChar(y$content), msg_erro) ) {
+                    if ( stringr::str_detect(rawToChar(y$content), msg_erro) ) {
                       stop("This is not a main bill. Download is not possible")
                     }
                      else {
@@ -51,7 +51,7 @@ cham_votes <- function(type, number, year, ascii = TRUE) {
   )
   data <- data %>%
         xml_find_all('.//Votacao') %>%
-    map_df(extract_bill_votes, .id = "rollcall_id") %>%
+    map_df(cham_extract_bill_votes, .id = "rollcall_id") %>%
     mutate(type_bill = type, number_bill = number, year_bill=year)
 
   data$rollcall_id <- data$type %p% "-" %p% data$number %p% "-" %p% data$year %p% "-" %p% data$rollcall_id
@@ -70,9 +70,9 @@ cham_votes <- function(type, number, year, ascii = TRUE) {
 }
 
 
-# I'm using this queue to create an id for each rollcall
+# create an id for each rollcall
 
-extract_bill_votes <- function(bill) {
+cham_extract_bill_votes <- function(bill) {
   info_bill <-  dplyr::tibble(
     decision_summary = xml_attr(bill, "Resumo"),
     decision_date = xml_attr(bill, "Data"),
@@ -94,7 +94,7 @@ extract_bill_votes <- function(bill) {
 
   votes_bill <- bill %>%
     xml_find_all('.//Deputado') %>%
-    map_df(extract_votes)
+    map_df(cham_extract_votes)
 
   data_bill <- bind_cols(info_bill, orientation_bill)
 
@@ -118,7 +118,7 @@ extract_orientation <- function(votacao) {
 }
 
 
-extract_votes <- function(votes) {
+cham_extract_votes <- function(votes) {
     DF <- dplyr::tibble(
       legislator_id =  xml_attr(votes, "ideCadastro"),
       legislator_name =  xml_attr(votes, "Nome"),
