@@ -46,3 +46,11 @@ party_orientation %>%
   group_by(orientation) %>%
   tally()
 
+## ---- message = F, warning = F-------------------------------------------
+if(!require(dplyr)){install.packages("dplyr", repos = "http://cran.us.r-project.org")}
+library(dplyr)
+
+party_orientation %>%
+  group_by(orientation) %>%
+  tally()
+

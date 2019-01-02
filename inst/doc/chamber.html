@@ -12,7 +12,7 @@
 
 <meta name="author" content="Robert McDonnell, Guilherme Duarte and Danilo Freire" />
 
-<meta name="date" content="2018-12-18" />
+<meta name="date" content="2019-01-02" />
 
 <title>Exploring the Brazilian Chamber of Deputies</title>
 
@@ -22,7 +22,7 @@
 <style type="text/css" data-origin="pandoc">
 a.sourceLine { display: inline-block; line-height: 1.25; }
 a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
-a.sourceLine:empty { height: 1.2em; }
+a.sourceLine:empty { height: 1.2em; position: absolute; }
 .sourceCode { overflow: visible; }
 code.sourceCode { white-space: pre; position: relative; }
 div.sourceCode { margin: 1em 0; }
@@ -35,11 +35,13 @@ code.sourceCode { white-space: pre-wrap; }
 a.sourceLine { text-indent: -1em; padding-left: 1em; }
 }
 pre.numberSource a.sourceLine
-  { position: relative; left: -4em; }
+  { position: relative; }
+pre.numberSource a.sourceLine:empty
+  { position: absolute; }
 pre.numberSource a.sourceLine::before
   { content: attr(data-line-number);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; pointer-events: all; display: inline-block;
+    position: absolute; left: -5em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all;
     -webkit-touch-callout: none; -webkit-user-select: none;
     -khtml-user-select: none; -moz-user-select: none;
     -ms-user-select: none; user-select: none;
@@ -300,7 +302,7 @@ code > span.fu { color: #900; font-weight: bold; }  code > span.er { color: #a61
 
 <h1 class="title toc-ignore">Exploring the Brazilian Chamber of Deputies</h1>
 <h4 class="author"><em>Robert McDonnell, Guilherme Duarte and Danilo Freire</em></h4>
-<h4 class="date"><em>2018-12-18</em></h4>
+<h4 class="date"><em>2019-01-02</em></h4>
 
 
 
@@ -433,6 +435,19 @@ code > span.fu { color: #900; font-weight: bold; }  code > span.er { color: #a61
 <a class="sourceLine" id="cb16-4" data-line-number="4">party_orientation <span class="op">%&gt;%</span></a>
 <a class="sourceLine" id="cb16-5" data-line-number="5"><span class="st">  </span><span class="kw">group_by</span>(orientation) <span class="op">%&gt;%</span></a>
 <a class="sourceLine" id="cb16-6" data-line-number="6"><span class="st">  </span><span class="kw">tally</span>()</a></code></pre></div>
+<pre><code>## # A tibble: 3 x 2
+##   orientation     n
+##   &lt;fct&gt;       &lt;int&gt;
+## 1 Liberado        3
+## 2 Nao             4
+## 3 Sim             7</code></pre>
+<p>Similarly, we could also have used the <code>dplyr</code> package to see how many parties suggested their members to vote “yay” (<em>sim</em>), “nay” (<em>não</em>), or allowed deputies to decide their votes (<em>liberado</em>).</p>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb18-1" data-line-number="1"><span class="cf">if</span>(<span class="op">!</span><span class="kw">require</span>(dplyr)){<span class="kw">install.packages</span>(<span class="st">&quot;dplyr&quot;</span>, <span class="dt">repos =</span> <span class="st">&quot;http://cran.us.r-project.org&quot;</span>)}</a>
+<a class="sourceLine" id="cb18-2" data-line-number="2"><span class="kw">library</span>(dplyr)</a>
+<a class="sourceLine" id="cb18-3" data-line-number="3"></a>
+<a class="sourceLine" id="cb18-4" data-line-number="4">party_orientation <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb18-5" data-line-number="5"><span class="st">  </span><span class="kw">group_by</span>(orientation) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb18-6" data-line-number="6"><span class="st">  </span><span class="kw">tally</span>()</a></code></pre></div>
 <pre><code>## # A tibble: 3 x 2
 ##   orientation     n
 ##   &lt;fct&gt;       &lt;int&gt;

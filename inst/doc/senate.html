@@ -12,7 +12,7 @@
 
 <meta name="author" content="Robert McDonnell, Guilherme Duarte and Danilo Freire" />
 
-<meta name="date" content="2018-12-18" />
+<meta name="date" content="2019-01-02" />
 
 <title>Exploring the Brazilian Federal Senate</title>
 
@@ -22,7 +22,7 @@
 <style type="text/css" data-origin="pandoc">
 a.sourceLine { display: inline-block; line-height: 1.25; }
 a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
-a.sourceLine:empty { height: 1.2em; }
+a.sourceLine:empty { height: 1.2em; position: absolute; }
 .sourceCode { overflow: visible; }
 code.sourceCode { white-space: pre; position: relative; }
 div.sourceCode { margin: 1em 0; }
@@ -35,11 +35,13 @@ code.sourceCode { white-space: pre-wrap; }
 a.sourceLine { text-indent: -1em; padding-left: 1em; }
 }
 pre.numberSource a.sourceLine
-  { position: relative; left: -4em; }
+  { position: relative; }
+pre.numberSource a.sourceLine:empty
+  { position: absolute; }
 pre.numberSource a.sourceLine::before
   { content: attr(data-line-number);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; pointer-events: all; display: inline-block;
+    position: absolute; left: -5em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all;
     -webkit-touch-callout: none; -webkit-user-select: none;
     -khtml-user-select: none; -moz-user-select: none;
     -ms-user-select: none; user-select: none;
@@ -300,7 +302,7 @@ code > span.fu { color: #900; font-weight: bold; }  code > span.er { color: #a61
 
 <h1 class="title toc-ignore">Exploring the Brazilian Federal Senate</h1>
 <h4 class="author"><em>Robert McDonnell, Guilherme Duarte and Danilo Freire</em></h4>
-<h4 class="date"><em>2018-12-18</em></h4>
+<h4 class="date"><em>2019-01-02</em></h4>
 
 
 
@@ -385,7 +387,7 @@ code > span.fu { color: #900; font-weight: bold; }  code > span.er { color: #a61
 ## #   senator_mandates_second_legis &lt;chr&gt;, senator_url &lt;chr&gt;,
 ## #   senator_email &lt;chr&gt;, senator_office_address &lt;chr&gt;</code></pre>
 <div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb11-1" data-line-number="1"><span class="kw">sen_senator_bills</span>(<span class="dt">id =</span> <span class="st">&quot;3398&quot;</span>)</a></code></pre></div>
-<pre><code>## # A tibble: 97 x 9
+<pre><code>## # A tibble: 38 x 9
 ##    senator_id senator_name senator_party_n… senator_party_a… senator_state
 ##    &lt;chr&gt;      &lt;chr&gt;        &lt;chr&gt;            &lt;chr&gt;            &lt;chr&gt;        
 ##  1 3398       Cristovam B… Partido Popular… PPS              DF           
@@ -398,7 +400,7 @@ code > span.fu { color: #900; font-weight: bold; }  code > span.er { color: #a61
 ##  8 3398       Cristovam B… Partido Popular… PPS              DF           
 ##  9 3398       Cristovam B… Partido Popular… PPS              DF           
 ## 10 3398       Cristovam B… Partido Popular… PPS              DF           
-## # ... with 87 more rows, and 4 more variables: senator_bills_number &lt;chr&gt;,
+## # ... with 28 more rows, and 4 more variables: senator_bills_number &lt;chr&gt;,
 ## #   senator_bills_type &lt;chr&gt;, senator_bills_year &lt;chr&gt;,
 ## #   senator_bills_details &lt;chr&gt;</code></pre>
 </div>
@@ -420,20 +422,20 @@ code > span.fu { color: #900; font-weight: bold; }  code > span.er { color: #a61
 <p>Using the commission abbreviations, we can see which senators serve on the commission. One well-known commission is the Commission for the Constitution, Justice and Citizenship (<em>Constituicao, Justica e Cidadania</em>). Its abbreviation is “CCJ”:</p>
 <div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb15-1" data-line-number="1"><span class="kw">data</span>(<span class="st">&quot;commissions&quot;</span>)</a>
 <a class="sourceLine" id="cb15-2" data-line-number="2"><span class="kw">sen_commissions_senators</span>(<span class="dt">code =</span> <span class="st">&quot;CCJ&quot;</span>)</a></code></pre></div>
-<pre><code>## # A tibble: 47 x 6
+<pre><code>## # A tibble: 30 x 6
 ##    commission commission_abbr senator_id senator_name senator_party
 ##    &lt;chr&gt;      &lt;chr&gt;           &lt;chr&gt;      &lt;chr&gt;        &lt;chr&gt;        
-##  1 Comissao … CCJ             4988       Ana Amelia   PP           
-##  2 Comissao … CCJ             5006       Gleisi Hoff… PT           
-##  3 Comissao … CCJ             87         Garibaldi A… MDB          
-##  4 Comissao … CCJ             4994       Eduardo Bra… MDB          
-##  5 Comissao … CCJ             4763       Vicentinho … PR           
-##  6 Comissao … CCJ             615        Jose Piment… PT           
-##  7 Comissao … CCJ             631        Magno Malta  PR           
-##  8 Comissao … CCJ             3          Antonio Car… PSB          
-##  9 Comissao … CCJ             4697       Angela Port… PDT          
-## 10 Comissao … CCJ             5008       Humberto Co… PT           
-## # ... with 37 more rows, and 1 more variable: senator_state &lt;chr&gt;</code></pre>
+##  1 Comissao … CCJ             5006       Gleisi Hoff… PT           
+##  2 Comissao … CCJ             87         Garibaldi A… MDB          
+##  3 Comissao … CCJ             615        Jose Piment… PT           
+##  4 Comissao … CCJ             631        Magno Malta  PR           
+##  5 Comissao … CCJ             3          Antonio Car… PSB          
+##  6 Comissao … CCJ             4697       Angela Port… PDT          
+##  7 Comissao … CCJ             5008       Humberto Co… PT           
+##  8 Comissao … CCJ             825        Paulo Paim   PT           
+##  9 Comissao … CCJ             4721       Eduardo Amo… PSDB         
+## 10 Comissao … CCJ             3361       Jose Maranh… MDB          
+## # ... with 20 more rows, and 1 more variable: senator_state &lt;chr&gt;</code></pre>
 </div>
 <div id="general-information" class="section level2">
 <h2>General Information</h2>
