@@ -1,7 +1,7 @@
-bf9b8bd1feffef1128bd159a58313586 *DESCRIPTION
+cdb4689abf8a545195a1f8db9cdb34b9 *DESCRIPTION
 d2b897d3cdd7708b4f208e067ea329cc *LICENSE
 18ca5cc9b74c0c39f678d73832d963ec *NAMESPACE
-a2aa5976b193d59797eae7e35ccfb86e *NEWS.md
+9a2fb019306db6bb1c151e2b96f41080 *NEWS.md
 b3bf369fd144313369ea7bbc35c2bb42 *R/cham_bill_info.R
 b768631021e7ec7dfe4049c71ebd0f09 *R/cham_bill_info_id.R
 48f673933a8293b5e0cc6e43b63a056c *R/cham_bills.R
@@ -16,7 +16,7 @@ d38793b982e09d6f65a9e844a51ecc6a *R/cham_plenary_bills.R
 92f561168e49744e5d6d397bcb804c59 *R/sen_bills_various.R
 15ff41d8b0df67620f7d6bedda0a9d88 *R/sen_budget.R
 f612f57a4d1b83c904a9d679fdad24cb *R/sen_coalition_info.R
-e47435abcfccaea4aa17c0954ba3b256 *R/sen_coalitions.R
+72cce96e303e6ec38d071091f399da2f *R/sen_coalitions.R
 9b3d286b656d1b07668e5063642af237 *R/sen_commission_list.R
 c6172bddc41d9697dbb813ab49e737c5 *R/sen_commissions.R
 105b478d7a996a3495cd1a4596cd5d45 *R/sen_nominal_votes.R
@@ -38,10 +38,10 @@ e76884a057db7057f23de2ab8b4959aa *build/vignette.rds
 898a4c1a5b7924d41ece45b6d4810a67 *inst/CITATION
 7f612d4faa16187e67d39bf2b718eaf9 *inst/doc/chamber.R
 7356cfb83a334bc86760ae2a8c94fda8 *inst/doc/chamber.Rmd
-1ecd622d2b7926a9fde3a14118511824 *inst/doc/chamber.html
+e88af1ae0ab1b2baf9c5f7bdfe63ca3d *inst/doc/chamber.html
 74e59542598a9f48887fcd993d216d79 *inst/doc/senate.R
 a06e0f75cea976524e9f329e653482ee *inst/doc/senate.Rmd
-c55ba18d70b20ea346dae651e43e0d17 *inst/doc/senate.html
+895705399fe38083add65b2e345cf3a3 *inst/doc/senate.html
 080ff5b9d8d1d65c6e1b1216395d37a3 *man/UF.Rd
 ca6a025dade5e889ab120b136d991598 *man/cham_bill_info.Rd
 2a1f469d853a14a0a046935ed3d9601e *man/cham_bill_info_id.Rd
@@ -71,7 +71,7 @@ fd7fb7bcb5d10cb763ffa0a0d86f5092 *man/sen_bills_passing.Rd
 dc6fee9b1210f4a7a60a3474096bbc30 *man/sen_bills_updates.Rd
 7715cd84fe4eb63a2ff116530d13c181 *man/sen_budget.Rd
 2135374869ccf9269ab104f0aba86519 *man/sen_coalition_info.Rd
-5d5d11ba56832cecf6e0ba4f15e6c16d *man/sen_coalitions.Rd
+537a20efd6273fc3560a25fc7b7cdf1e *man/sen_coalitions.Rd
 60b02882588914653de32daee3cf856b *man/sen_commission_positions.Rd
 269c81069981c71d1a09f1171232db72 *man/sen_commissions.Rd
 1b57cac6b15147f9b4152b6cf2e5f363 *man/sen_commissions_senators.Rd
