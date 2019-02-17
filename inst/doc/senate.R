@@ -20,11 +20,6 @@ sen_plenary_result(date = "20160303")
 
 ## ------------------------------------------------------------------------
 sen_senator_list()
-sen_senator_details(id = "3398") # Cristovam Buarque
-sen_senator_bills(id = "3398")
-
-## ----message = FALSE, warning=FALSE--------------------------------------
-sen_coalition_info(code = 200)
 
 ## ------------------------------------------------------------------------
 data("commissions")

@@ -1,3 +1,7 @@
+# congressbr 0.2.0
+
+- Some functions have been removed from the package as they are presently unable from the API.
+
 # congressbr 0.1.8
 
 - new purrr 0.3 was producing error; now fixed.
