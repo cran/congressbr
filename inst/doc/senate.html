@@ -12,7 +12,7 @@
 
 <meta name="author" content="Robert McDonnell, Guilherme Duarte and Danilo Freire" />
 
-<meta name="date" content="2019-02-17" />
+<meta name="date" content="2019-05-08" />
 
 <title>Exploring the Brazilian Federal Senate</title>
 
@@ -291,6 +291,9 @@ code > span.al { color: #ff0000; font-weight: bold; }
 code > span.fu { color: #900; font-weight: bold; }  code > span.er { color: #a61717; background-color: #e3d2d2; } 
 </style>
 
+
+
+
 </head>
 
 <body>
@@ -299,8 +302,8 @@ code > span.fu { color: #900; font-weight: bold; }  code > span.er { color: #a61
 
 
 <h1 class="title toc-ignore">Exploring the Brazilian Federal Senate</h1>
-<h4 class="author"><em>Robert McDonnell, Guilherme Duarte and Danilo Freire</em></h4>
-<h4 class="date"><em>2019-02-17</em></h4>
+<h4 class="author">Robert McDonnell, Guilherme Duarte and Danilo Freire</h4>
+<h4 class="date">2019-05-08</h4>
 
 
 
@@ -381,27 +384,20 @@ code > span.fu { color: #900; font-weight: bold; }  code > span.er { color: #a61
 <p>Using the commission abbreviations, we can see which senators serve on the commission. One well-known commission is the Commission for the Constitution, Justice and Citizenship (<em>Constituicao, Justica e Cidadania</em>). Its abbreviation is “CCJ”:</p>
 <div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb9-1" data-line-number="1"><span class="kw">data</span>(<span class="st">&quot;commissions&quot;</span>)</a>
 <a class="sourceLine" id="cb9-2" data-line-number="2"><span class="kw">sen_commissions_senators</span>(<span class="dt">code =</span> <span class="st">&quot;CCJ&quot;</span>)</a></code></pre></div>
-<pre><code>## # A tibble: 17 x 6
+<pre><code>## # A tibble: 47 x 6
 ##    commission commission_abbr senator_id senator_name senator_party
 ##    &lt;chr&gt;      &lt;chr&gt;           &lt;chr&gt;      &lt;chr&gt;        &lt;chr&gt;        
-##  1 Comissao … CCJ             4994       Eduardo Bra… MDB          
-##  2 Comissao … CCJ             3361       Jose Maranh… MDB          
-##  3 Comissao … CCJ             1173       Wellington … PR           
-##  4 Comissao … CCJ             5529       Antonio Ana… PSDB         
-##  5 Comissao … CCJ             677        Roberto Roc… PSDB         
-##  6 Comissao … CCJ             5008       Humberto Co… PT           
-##  7 Comissao … CCJ             90         Jose Serra   PSDB         
-##  8 Comissao … CCJ             5012       Randolfe Ro… REDE         
-##  9 Comissao … CCJ             5929       Selma Arruda PSL          
-## 10 Comissao … CCJ             5533       Lasier Mart… PODE         
-## 11 Comissao … CCJ             2331       Rose de Fre… PODE         
-## 12 Comissao … CCJ             1023       Maria do Ca… DEM          
-## 13 Comissao … CCJ             739        Ciro Noguei… PP           
-## 14 Comissao … CCJ             742        Marcelo Cas… MDB          
-## 15 Comissao … CCJ             5527       Simone Tebet MDB          
-## 16 Comissao … CCJ             581        Jaques Wagn… PT           
-## 17 Comissao … CCJ             4560       Sergio Pete… PSD          
-## # … with 1 more variable: senator_state &lt;chr&gt;</code></pre>
+##  1 Comissao … CCJ             5523       Otto Alencar PSD          
+##  2 Comissao … CCJ             4994       Eduardo Bra… MDB          
+##  3 Comissao … CCJ             5973       Cid Gomes    PDT          
+##  4 Comissao … CCJ             5942       Marcos do V… CIDADANIA    
+##  5 Comissao … CCJ             5666       Major Olimp… PSL          
+##  6 Comissao … CCJ             5561       Renilde Bul… PROS         
+##  7 Comissao … CCJ             5967       Angelo Coro… PSD          
+##  8 Comissao … CCJ             22         Esperidiao … PP           
+##  9 Comissao … CCJ             5350       Jorginho Me… PR           
+## 10 Comissao … CCJ             285        Marcio Bitt… MDB          
+## # … with 37 more rows, and 1 more variable: senator_state &lt;chr&gt;</code></pre>
 </div>
 <div id="general-information" class="section level2">
 <h2>General Information</h2>
@@ -409,20 +405,20 @@ code > span.fu { color: #900; font-weight: bold; }  code > span.er { color: #a61
 <h3>Parties</h3>
 <p>A list of the parties who have held seats in the Senate can be had with <code>sen_parties()</code>:</p>
 <div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb11-1" data-line-number="1"><span class="kw">sen_parties</span>()</a></code></pre></div>
-<pre><code>## # A tibble: 49 x 4
+<pre><code>## # A tibble: 48 x 4
 ##    party_id party_abbr party_name                       date_created
 ##    &lt;chr&gt;    &lt;chr&gt;      &lt;chr&gt;                            &lt;chr&gt;       
 ##  1 578      AVANTE     AVANTE                           2017-09-12  
-##  2 581      DC         Democracia Crista                2015-01-01  
-##  3 554      DEM        Democratas                       2007-03-28  
-##  4 33       MDB        Movimento Democratico Brasileiro 1980-01-01  
-##  5 566      NOVO       Partido Novo                     2015-09-15  
-##  6 142      PAN        Partido dos Aposentados da Nacao 1998-02-19  
-##  7 579      PATRI      Patriota                         2018-04-26  
-##  8 94       PCB        Partido Comunista Brasileiro     1922-03-25  
-##  9 144      PCN        Partido Comunitario  Nacional    1985-07-01  
-## 10 145      PCO        Partido da Causa Operaria        1997-09-30  
-## # … with 39 more rows</code></pre>
+##  2 41       CIDADANIA  CIDADANIA                        1992-01-01  
+##  3 581      DC         Democracia Crista                2018-05-18  
+##  4 554      DEM        Democratas                       2007-03-28  
+##  5 33       MDB        Movimento Democratico Brasileiro 1980-01-01  
+##  6 566      NOVO       Partido Novo                     2015-09-15  
+##  7 142      PAN        Partido dos Aposentados da Nacao 1998-02-19  
+##  8 579      PATRI      Patriota                         2018-04-26  
+##  9 94       PCB        Partido Comunista Brasileiro     1922-03-25  
+## 10 144      PCN        Partido Comunitario  Nacional    1985-07-01  
+## # … with 38 more rows</code></pre>
 </div>
 <div id="states" class="section level3">
 <h3>States</h3>
@@ -494,12 +490,13 @@ code > span.fu { color: #900; font-weight: bold; }  code > span.er { color: #a61
 <a class="sourceLine" id="cb21-3" data-line-number="3"></a>
 <a class="sourceLine" id="cb21-4" data-line-number="4">all_sens <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(status <span class="op">!=</span><span class="st"> &quot;Titular&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">group_by</span>(state) <span class="op">%&gt;%</span><span class="st"> </span></a>
 <a class="sourceLine" id="cb21-5" data-line-number="5"><span class="st">  </span><span class="kw">summarise</span>(<span class="dt">totals =</span> <span class="kw">n</span>()) <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">arrange</span>(<span class="kw">desc</span>(totals))</a></code></pre></div>
-<pre><code>## # A tibble: 3 x 2
+<pre><code>## # A tibble: 4 x 2
 ##   state totals
 ##   &lt;chr&gt;  &lt;int&gt;
 ## 1 AC         1
-## 2 GO         1
-## 3 RN         1</code></pre>
+## 2 AL         1
+## 3 GO         1
+## 4 RN         1</code></pre>
 <p>Mato Grosso, it seems, with two-thirds of their senators being stand-in <em>suplentes</em>.</p>
 </div>
 </div>
